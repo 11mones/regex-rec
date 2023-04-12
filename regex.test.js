@@ -41,11 +41,11 @@ required extention are jpg, jpeg and png.
 
 function imagesSearcher(text){
     let arr = [];
-    var validRegex = /^[a-zA-Z0-9]+\.j/;
-    var validRegex1 = /^[a-zA-Z0-9]+\.+\p/;
-    // var validRegex2 = /^[a-zA-Z0-9]+\.+\p+\n+\g/;
+    var validRegex = /^[a-zA-Z0-9]+\.+\j+\p+\g/;
+    var validRegex1 = /^[a-zA-Z0-9]+\.+\j+\p+\e+\g/;
+    var validRegex2 = /^[a-zA-Z0-9]+\.+\p/;
     let chars = text.split(" ");
-    // console.log(chars);
+   
     for (let i =0; i<chars.length; i++){
         if(chars[i].match(validRegex)){
             arr.push(chars[i]);
@@ -53,8 +53,14 @@ function imagesSearcher(text){
         else if(chars[i].match(validRegex1)){
             arr.push(chars[i]);  
         }
+        else if(chars[i].match(validRegex2)){
+            arr.push(chars[i]);  
+        }
         }
         return arr;  
+
+
+        
     }
 
 
